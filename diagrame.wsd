@@ -1,0 +1,31 @@
+@startuml Gestion_stock
+
+package "majax"{
+
+    package "Entity"{
+        class Company
+        class User
+        class Client
+        class Product
+        class Category
+        class supplier
+        class ClientOrder
+        class supplierOrder
+        class sale
+        class StockMovement
+
+        Company "One" *-- "Many" User : To
+        Product "One" *-- "Many" Category : To
+        Client "One" *-- "Many" Order : To
+        Product "one" *-- "Many" StockMovement : To
+        sale "many" *-- "Many" Product : To
+        ClientOrder "Many" *-- "Many" Product : To
+        supplierOrder "Many" *-- "Many" Product : To
+        supplier "one" *-- "Many" supplierOrder : To
+
+    }
+
+
+}
+
+@enduml
